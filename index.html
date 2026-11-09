@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noir Scents</title>
+    <!-- Two Google Fonts: Bodoni Moda (headings) and Jost (body text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER: logo on the left, navigation + bag on the right -->
+    <header id="header">
+        <a href="index.html" class="logo"><img src="images/Noir_Logo.jpeg" alt="Noir Scents, back to home"></a>
+
+        <nav id="nav" aria-label="Main">
+            <a href="#collection">Collection</a>
+            <a href="#story">About Us</a>
+            <a href="#reviews" id="reviewsLink">Reviews</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="bag-btn" id="bagBtn" aria-label="Shopping bag">
+                Bag <span id="bagCount">0</span>
+            </button>
+            <!-- Only visible on phones; opens and closes the nav -->
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO: the first thing visitors see -->
+        <section class="hero">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+                <source src="videos/noir-scents-hero.mp4" type="video/mp4">
+            </video>
+
+            <div class="hero-text">
+                <h1>Leave More Than an <em>Impression</em></h1>
+                <p>Beyond Fragrance. Beyond Ordinary.</p>
+                <a href="#collection" class="btn">Shop the collection</a>
+            </div>
+
+            <div class="hero-art" role="region" aria-label="Featured perfumes">
+                <div class="slides" id="heroSlides"></div>
+                <div class="dots" id="heroDots"></div>
+            </div>
+        </section>
+
+        <!-- COLLECTION: the cards are created by script.js from a list -->
+        <section class="section" id="collection">
+            <h2>The collection</h2>
+            <div class="filters" id="filters">
+                <button class="filter active" data-family="All">All</button>
+                <button class="filter" data-family="Men">Men</button>
+                <button class="filter" data-family="Women">Women</button>
+                <button class="filter" data-family="Unisex">Unisex</button>
+            </div>
+            <div class="grid" id="productGrid"></div>
+        </section>
+
+        <!-- STORY -->
+        <section class="section story" id="story">
+            <h2>Made slowly, on purpose</h2>
+            <div class="story-body">
+                <p>Every Fragrance House perfume starts with a single ingredient we love and builds outward from it.
+                    We
+                    blend in small batches, let each one rest for six weeks, and only then bottle it.</p>
+                <ul>
+                    <li><strong>Top notes</strong> are what you smell first and fade within minutes.</li>
+                    <li><strong>Heart notes</strong> define the perfume and last a few hours.</li>
+                    <li><strong>Base notes</strong> stay on your skin until the next morning.</li>
+                </ul>
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><strong>Phone Number</strong> 03193895009</li>
+                    <li><strong>Email</strong> noirscents@gmail.com</li>
+                    <li><strong>instagram</strong> noir_scents_store</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- REVIEWS: cards are created by script.js from a list -->
+        <section class="reviews" id="reviews">
+            <div class="section">
+                <h2>What our customers say</h2>
+                <div class="review-slider">
+                    <button class="arrow" id="reviewPrev" aria-label="Previous review">&#8249;</button>
+                    <div class="review-row" id="reviewRow"></div>
+                    <button class="arrow" id="reviewNext" aria-label="Next review">&#8250;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Noir Scents. All rights reserved.</p>
+    </footer>
+
+    <!-- BAG PANEL: slides in from the right when "Bag" is tapped -->
+    <div class="overlay" id="overlay"></div>
+    <aside class="drawer" id="drawer" aria-label="Your bag">
+        <div class="drawer-head">
+            <h2>Your bag</h2>
+            <button id="closeBag" aria-label="Close bag">&times;</button>
+        </div>
+
+        <div id="bagItems"></div>
+        <div class="totals" id="bagTotals"></div>
+
+        <form id="orderForm" novalidate>
+            <label>Full name
+                <input id="oName" autocomplete="name" required>
+            </label>
+            <label>Mobile number
+                <input id="oPhone" type="tel" inputmode="tel" placeholder="0300 1234567" autocomplete="tel" required>
+            </label>
+            <label>Address
+                <textarea id="oAddress" rows="2" autocomplete="street-address" required></textarea>
+            </label>
+            <label>City
+                <input id="oCity" autocomplete="address-level2" required>
+            </label>
+
+            <!-- spam trap: real people never see or fill this -->
+            <input type="text" id="oTrap" class="trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <p class="pay">Payment: cash on delivery</p>
+            <p id="orderMsg" role="status"></p>
+            <button class="btn" type="submit" id="orderBtn">Place order</button>
+        </form>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
