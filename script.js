@@ -14,7 +14,7 @@ const products = [
     { name: "Wanted",  family: "Men", notes: "Lavender, Aromatic, Soft Spicy",       price: 2999, oldPrice: 3999, color: "#E8D7A8", image: "images/Wanted_Card_Pic.jpeg" },
     { name: "Zoye",   family: "Women",  notes: "Jasmine, Pear Blossom, Sweet",      price: 2599, oldPrice: 3999, color: "#6B4A3A", image: "images/Zoye_Card_Pic.jpeg" },
     { name: "Flora",    family: "Women",  notes: "Caramel, Honey, Blood Orange",         price: 2899, oldPrice: 3999, color: "#8A4B2A", image: "images/Flora_Card_Pic.jpeg" },
-    { name: "Candy",  family: "Women", notes: "Sweet, Strawberry, Amber",  price:2699, oldPrice: 3999, color: "#D6B93C", image: "images/Candy_Card_Pic.jpeg" },
+    { name: "Candy",  family: "Women", notes: "Sweet, Strawberry, Amber",  price:2699, oldPrice: 3999, color: "#D6B93C", image: "images/Candy.jpeg" },
 ];
 
 // ==========================================================
