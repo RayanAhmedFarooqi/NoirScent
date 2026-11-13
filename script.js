@@ -10,11 +10,11 @@ function money(amount) {
 }
 
 const products = [
-    { name: "Scooch",   family: "Unisex", notes: "Sweet, Vanilla, Fruity",   price: 2999, oldPrice: 3999, color: "#D9778A", image: "images/Scooch_Card_Pic.jpeg" },
+    { name: "Scooch",   family: "Unisex", notes: "Sweet, Vanilla, Fruity",   price: 2799, oldPrice: 3999, color: "#D9778A", image: "images/Scooch_Card_Pic.jpeg" },
     { name: "Wanted",  family: "Men", notes: "Lavender, Aromatic, Soft Spicy",       price: 2999, oldPrice: 3999, color: "#E8D7A8", image: "images/Wanted_Card_Pic.jpeg" },
-    { name: "Zoye",   family: "Women",  notes: "Jasmine, Pear Blossom, Sweet",      price: 2999, oldPrice: 3999, color: "#6B4A3A", image: "images/Zoye_Card_Pic.jpeg" },
-    { name: "Flora",    family: "Women",  notes: "Caramel, Honey, Blood Orange",         price: 2999, oldPrice: 3999, color: "#8A4B2A", image: "images/Flora_Card_Pic.jpeg" },
-    { name: "Candy",  family: "Women", notes: "Sweet, Strawberry, Amber",  price: 2999, oldPrice: 3999, color: "#D6B93C", image: "images/Candy_Card_Pic.jpeg" },
+    { name: "Zoye",   family: "Women",  notes: "Jasmine, Pear Blossom, Sweet",      price: 2599, oldPrice: 3999, color: "#6B4A3A", image: "images/Zoye_Card_Pic.jpeg" },
+    { name: "Flora",    family: "Women",  notes: "Caramel, Honey, Blood Orange",         price: 2899, oldPrice: 3999, color: "#8A4B2A", image: "images/Flora_Card_Pic.jpeg" },
+    { name: "Candy",  family: "Women", notes: "Sweet, Strawberry, Amber",  price:2699, oldPrice: 3999, color: "#D6B93C", image: "images/Candy_Card_Pic.jpeg" },
 ];
 
 // ==========================================================
@@ -215,12 +215,9 @@ nav.querySelectorAll("a").forEach(link => {
 //    While the list is empty, the whole section and its menu link stay hidden.
 // ==========================================================
 const reviews = [
-     { name: "Ayesha K.", city: "Karachi", product: "Zoye", stars: 5, text: "Paste the customer's words here.", image: "images/Noir_Logo.jpeg" },
-     { name: "Hamza R.",  city: "Lahore",  product: "Wanted", stars: 5, text: "A review without a photo.", image:"images/Noir_Logo.jpeg" },
-     { name: "Hamza R.",  city: "Lahore",  product: "Wanted", stars: 5, text: "A review without a photo.", image:"images/Noir_Logo.jpeg" },
-     { name: "Hamza R.",  city: "Lahore",  product: "Wanted", stars: 5, text: "A review without a photo.", image:"images/Noir_Logo.jpeg" },
-     { name: "Hamza R.",  city: "Lahore",  product: "Wanted", stars: 5, text: "A review without a photo.", image:"images/Noir_Logo.jpeg" },
-     { name: "Hamza R.",  city: "Lahore",  product: "Wanted", stars: 5, text: "A review without a photo.", image:"images/Noir_Logo.jpeg" },
+     { name: "Upcoming", city: "Karachi", product: "Zoye", stars: 5, text: "Upcoming", image: "" },
+     { name: "Upcoming",  city: "Karachi",  product: "Wanted", stars: 5, text: "Upcoming", image:"" },
+     { name: "Upcoming",  city: "Karachi",  product: "Wanted", stars: 5, text: "Upcoming", image:"" },
 ];
 
 const reviewsSection = document.getElementById("reviews");
