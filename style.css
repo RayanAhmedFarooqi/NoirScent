@@ -944,3 +944,24 @@ body.no-scroll {
         max-height: 14rem;
     }
 }
+
+/* ==========================================================
+   SCROLL REVEALS
+   script.js adds the "reveal" class to elements, then adds "in"
+   when they scroll into view. Changing the numbers below changes the feel.
+   ========================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    /* how far the element rises (bigger = more dramatic) */
+    transition: opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    /* 0.8s = how long it takes */
+    transition-delay: var(--d, 0ms);
+    /* set per element by the script, for the stagger */
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}

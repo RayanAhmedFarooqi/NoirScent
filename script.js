@@ -330,3 +330,50 @@ if (!slowMotion && slideCount > 1) {
 const sliderBox = document.querySelector(".hero-art");
 sliderBox.addEventListener("pointerenter", () => sliderPaused = true);
 sliderBox.addEventListener("pointerleave", () => sliderPaused = false);
+
+// ==========================================================
+// 9. SCROLL REVEALS
+//    Skipped for visitors who prefer reduced motion, and for
+//    very old browsers, so content is never left hidden.
+// ==========================================================
+if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+    // runs whenever a tagged element scrolls into view
+    const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            revealObserver.unobserve(el);               // each element animates only once
+            el.classList.add("in");                     // this triggers the CSS transition
+
+            // afterwards, remove the helper classes so the card's normal hover effect works again
+            const wait = parseInt(el.style.getPropertyValue("--d")) || 0;
+            setTimeout(() => {
+                el.classList.remove("reveal", "in");
+                el.style.removeProperty("--d");
+            }, wait + 1000);
+        });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });   // fires when 12% is visible
+
+    // hides an element and starts watching it
+    function reveal(el, delay = 0) {
+        if (el.dataset.rv) return;                      // never tag the same element twice
+        el.dataset.rv = "1";
+        el.classList.add("reveal");
+        el.style.setProperty("--d", delay + "ms");
+        revealObserver.observe(el);
+    }
+
+    // headings, filter buttons, the reviews slider and each paragraph or list in About Us
+    document.querySelectorAll(".section h2, .filters, .review-slider, .story-body > *")
+        .forEach(el => reveal(el));
+
+    // product cards: each row appears left to right, 130ms apart
+    function revealCards() {
+        const columns = window.innerWidth >= 900 ? 3 : window.innerWidth >= 600 ? 2 : 1;
+        grid.querySelectorAll(".card").forEach((card, i) => reveal(card, (i % columns) * 130));
+    }
+    revealCards();
+    // the cards are rebuilt every time a filter is tapped, so tag the new ones too
+    new MutationObserver(revealCards).observe(grid, { childList: true });
+}
